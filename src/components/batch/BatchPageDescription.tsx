@@ -37,7 +37,7 @@ const BatchPageDescription: React.FC = () => {
         <div>
             <div className="header_wrapper">
                 <p className="header_paragraph">
-                    <span className="header_number">{count}</span> Issued Batches
+                    <span className="header_number">{count}</span> Lotes emitidos
                 </p>
                 <Link
                     className="header_button"
@@ -45,7 +45,7 @@ const BatchPageDescription: React.FC = () => {
                     to={`${adminRoute}/collections/credential-batch/create`}
                 >
                     <img className="header_plus_icon" src="/assets/plus-icon.svg" alt="plus icon" />
-                    Upload and Prepare Batch
+                    Subir y preparar un lote
                 </Link>
             </div>
         </div>

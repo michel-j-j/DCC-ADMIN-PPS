@@ -7,7 +7,7 @@ import Logout from '../Logout/Logout';
 import Account from '../Account/Account';
 import { useAuth } from 'payload/dist/admin/components/utilities/Auth';
 
-import Logo from '../../assets/tdm-alt-logo.png';
+import Logo from '../../assets/UNRN-color.png';
 import ListChecks from '../../assets/list-checks.svg';
 import FileCheck from '../../assets/file-check.svg';
 import FileEdit from '../../assets/file-edit.svg';
@@ -37,7 +37,7 @@ const SideNav: React.FC = () => {
                 >
                     <img src={ListChecks} alt="credential-batch" />{' '}
                     <span className={`transition-[font-size]`}>
-                        Issuance Overview
+                        Descripción general de la emisión
                     </span>
                 </NavLink>
 
@@ -48,7 +48,7 @@ const SideNav: React.FC = () => {
                 >
                     <img src={FileCheck} alt="credential" />
                     <span className={`transition-[font-size]`}>
-                        Credentials
+                        Cartas credenciales
                     </span>
                 </NavLink>
 
@@ -59,7 +59,7 @@ const SideNav: React.FC = () => {
                 >
                     <img src={FileEdit} alt="credential-template" />{' '}
                     <span className={`transition-[font-size]`}>
-                        Credential Templates
+                        Plantillas de credenciales
                     </span>
                 </NavLink>
 
@@ -70,7 +70,7 @@ const SideNav: React.FC = () => {
                 >
                     <img src={MailPlus} alt="email-template" />
                     <span className={`transition-[font-size]`}>
-                        Email Templates
+                        Plantillas de correo electrónico
                     </span>
                 </NavLink>
 
@@ -81,7 +81,7 @@ const SideNav: React.FC = () => {
                 >
                     <img src={Users} alt="users" />
                     <span className={`transition-[font-size]`}>
-                        Users
+                        Usuarios
                     </span>
                 </NavLink>
             </section>

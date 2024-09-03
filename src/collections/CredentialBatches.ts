@@ -8,7 +8,7 @@ import { duplicateBatch } from '../endpoints/duplicateBatch';
 
 const CredentialsBatchesCollection: CollectionConfig = {
     slug: 'credential-batch',
-    labels: { plural: 'Issuance Overview' },
+    labels: { plural: 'Descripción general de la emisión' },
     access: {
         delete: async ({ id }) => {
             try {
@@ -66,7 +66,7 @@ const CredentialsBatchesCollection: CollectionConfig = {
     fields: [
         {
             name: 'title',
-            label: 'Batch Title',
+            label: 'Título por lotes',
             type: 'text',
             required: true,
             minLength: 3,

@@ -37,7 +37,7 @@ const TemplatePageDescription: React.FC = () => {
     return (
         <div className="header_wrapper">
             <p className="header_paragraph">
-                <span className="header_number">{count}</span> Published Templates
+                <span className="header_number">{count}</span> Plantillas publicadas
             </p>
 
             <Link
@@ -46,7 +46,7 @@ const TemplatePageDescription: React.FC = () => {
                 to={`${adminRoute}/collections/credential-template/create`}
             >
                 <img className="plus_icon" src="/assets/plus-icon.svg" alt="plus icon" />
-                Create New Template
+                Crear nueva plantilla
             </Link>
         </div>
     );

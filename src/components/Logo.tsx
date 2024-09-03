@@ -4,7 +4,7 @@ import './logo.scss';
 export const Logo: React.FC = () => (
   <div className="logo">
     <img
-      src="/assets/tdm-transparent-logo.png"
+      src="/assets/UNRN-color.png"
       alt="Digital Credentials Consortium"
     />
   </div>

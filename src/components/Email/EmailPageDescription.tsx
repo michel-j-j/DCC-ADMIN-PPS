@@ -37,7 +37,7 @@ const EmailPageDescription: React.FC = () => {
     return (
         <div className="header_wrapper">
             <p className="header_paragraph">
-                <span className="header_number">{count}</span> Published Templates
+                <span className="header_number">{count}</span> Plantillas publicadas
             </p>
             <Link
                 className="header_template_button"

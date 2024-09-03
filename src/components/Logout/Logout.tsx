@@ -25,7 +25,7 @@ const Logout: React.FC<LogoutProps> = ({ className = '', textClassName = '', onC
             className={`${baseClass}__log-out ${className}`}
         >
             <LogOut />
-            <p className={textClassName}>Logout</p>
+            <p className={textClassName}>Cerrar sesión</p>
         </Link>
     );
 };
