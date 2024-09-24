@@ -55,20 +55,19 @@ const RevocationWarning: React.FC<RevocationWarningProps> = ({ slug, credential 
                     <header role="presentation">
                         <ArrowArcLeft />
                     </header>
-                    <h2>{isNotSentYet ? 'Cancel' : 'Revoke'} Credential?</h2>
+                    <h2>{isNotSentYet ? 'Cancel' : 'Revoke'} Credencial?</h2>
                     <p>
-                        By {isNotSentYet ? 'cancelling' : 'revoking'} this credential, you
-                        acknowledge the immediate invalidation and withdrawal of the issued
-                        credential.
+                        Al {isNotSentYet ? 'cancelling' : 'revoking'} esta credencial, reconoce la
+                        invalidación y retirada inmediata de la credencial expedida.
                     </p>
                     <section>
-                        <span>Credential Name: {credential.credentialName}</span>
-                        <span>Template Name: {batchName}</span>
-                        <span>Earner Name: {credential.earnerName}</span>
+                        <span>Nombre de la credencial: {credential.credentialName}</span>
+                        <span>Nombre de Plantilla: {batchName}</span>
+                        <span>Nombre de Beneficiario: {credential.earnerName}</span>
                     </section>
                     <label>
-                        Add a comment explaining why you're{' '}
-                        {isNotSentYet ? 'cancelling' : 'revoking'} this credential.
+                        Añade un comentario explicando por qué estás{' '}
+                        {isNotSentYet ? 'cancelling' : 'revoking'} esta Credencial.
                         <textarea
                             onChange={e => setReason(e.target.value)}
                             value={reason}
@@ -76,7 +75,7 @@ const RevocationWarning: React.FC<RevocationWarningProps> = ({ slug, credential 
                         />
                     </label>
                     <label>
-                        Type the name of the credential you're{' '}
+                        Escriba el nombre de la credencial que va a{' '}
                         {isNotSentYet ? 'cancelling' : 'revoking'}.
                         <input
                             type="text"
@@ -84,7 +83,7 @@ const RevocationWarning: React.FC<RevocationWarningProps> = ({ slug, credential 
                             value={confirmation}
                         />
                     </label>
-                    <button disabled={confirmation !== credential.credentialName}>Revoke</button>
+                    <button disabled={confirmation !== credential.credentialName}>Revocar</button>
                 </form>
             </section>
         </Drawer>

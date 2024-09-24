@@ -31,7 +31,7 @@ const ActionsButton: React.FC<
     const { openModal } = useModal();
 
     const isRevoked = rowData.status === CREDENTIAL_STATUS.REVOKED;
-    const revocationSlug = `revocation-${isRevoked ? 'details' : 'warning'}-${rowData.id}`;
+    const revocationSlug = `revocation-${isRevoked ? 'detalles' : 'advertencia'}-${rowData.id}`;
 
     useEffect(() => {
         function close(event: MouseEvent) {
@@ -60,7 +60,7 @@ const ActionsButton: React.FC<
     const items: ActionButton[] = [
         {
             type: 'link',
-            label: 'View Details',
+            label: 'Ver Detalles',
             icon: <Eye />,
             url: `${adminRoute}/collections/credential/${rowData.id}?fromBatchPage=true`,
         },
@@ -69,7 +69,7 @@ const ActionsButton: React.FC<
     if (simple && !readOnly) {
         items.push({
             type: 'button',
-            label: 'Remove Earner',
+            label: 'Eliminar Beneficiario',
             icon: <X />,
             onClick: async () => {
                 const res = await fetch(`/api/credential/${rowData.id}`, {
@@ -85,7 +85,7 @@ const ActionsButton: React.FC<
     if (!simple) {
         items.push({
             type: 'button',
-            label: 'Resend',
+            label: 'Reenviar',
             icon: <Send />,
             onClick: async () => {
                 const response = await fetch('/api/send-email', {
@@ -100,14 +100,14 @@ const ActionsButton: React.FC<
 
         items.push({
             type: 'button',
-            label: isRevoked ? 'View Revocation Details' : 'Revoke',
+            label: isRevoked ? 'Ver Detalles de Revocacion' : 'Revocar',
             icon: <ArrowArcLeft />,
             onClick: () => openModal(revocationSlug),
         });
 
         items.push({
             type: 'link',
-            label: 'View Batch',
+            label: 'Ver Lote',
             icon: <BarGraph />,
             url: `${adminRoute}/collections/credential-batch/${rowData.batch}`,
         });
@@ -143,7 +143,7 @@ const ActionsButton: React.FC<
         <section ref={container} className="actions-container">
             <section className={`actions ${isOpen ? 'open' : ''} ${position}`}>
                 <button className="header-button" type="button" onClick={() => setIsOpen(!isOpen)}>
-                    <span>Actions</span>
+                    <span>Acciones</span>
                     <Caret />
                 </button>
 

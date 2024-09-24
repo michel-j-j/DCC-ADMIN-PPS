@@ -16,7 +16,6 @@ import Users from '../../assets/users.svg';
 import Caret from '../svgs/Caret';
 
 const SideNav: React.FC = () => {
-   
     const { user } = useAuth();
 
     const {
@@ -26,7 +25,7 @@ const SideNav: React.FC = () => {
     return (
         <nav className={`navbar-wrapper relative open'`}>
             <header>
-                <img className="h-15" src={Logo} alt="Digital Credentials Consortium logo" />
+                <img className="h-15" src={Logo} alt="Universidad Nacional de Rio Negro logo" />
             </header>
 
             <section>
@@ -47,9 +46,7 @@ const SideNav: React.FC = () => {
                     onClick={close}
                 >
                     <img src={FileCheck} alt="credential" />
-                    <span className={`transition-[font-size]`}>
-                        Cartas credenciales
-                    </span>
+                    <span className={`transition-[font-size]`}>Cartas credenciales</span>
                 </NavLink>
 
                 <NavLink
@@ -58,9 +55,7 @@ const SideNav: React.FC = () => {
                     onClick={close}
                 >
                     <img src={FileEdit} alt="credential-template" />{' '}
-                    <span className={`transition-[font-size]`}>
-                        Plantillas de credenciales
-                    </span>
+                    <span className={`transition-[font-size]`}>Plantillas de credenciales</span>
                 </NavLink>
 
                 <NavLink
@@ -80,9 +75,7 @@ const SideNav: React.FC = () => {
                     onClick={close}
                 >
                     <img src={Users} alt="users" />
-                    <span className={`transition-[font-size]`}>
-                        Usuarios
-                    </span>
+                    <span className={`transition-[font-size]`}>Usuarios</span>
                 </NavLink>
             </section>
 
@@ -100,9 +93,7 @@ const SideNav: React.FC = () => {
                             >
                                 {user.name}
                             </p>
-                            <p
-                                className={`text-start text-base m-0 transition-[font-size]`}
-                            >
+                            <p className={`text-start text-base m-0 transition-[font-size]`}>
                                 {user.email}
                             </p>
                         </section>
@@ -111,7 +102,6 @@ const SideNav: React.FC = () => {
 
                 <section>
                     <Logout
-                        
                         className={`flex justify-center transition-[gap] gap-2`}
                         textClassName={`text-xl transition-[font-size]`}
                     />

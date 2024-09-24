@@ -96,7 +96,7 @@ const SidebarMenu: React.FC<Props> = props => {
                             ((collection.versions?.drafts &&
                                 !collection.versions?.drafts?.autosave) ||
                                 (isEditing && preview)) &&
-                            `${baseClass}__document-actions--has-2`,
+                                `${baseClass}__document-actions--has-2`,
                         ]
                             .filter(Boolean)
                             .join(' ')}

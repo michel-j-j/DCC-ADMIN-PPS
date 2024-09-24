@@ -98,8 +98,8 @@ const JSONField: React.FC<Props> = props => {
             <p className="flex gap-2 items-center flex-wrap rounded bg-blue-200 text-black font-roboto px-6 py-2 my-3">
                 <CircleBang className="w-5 h-5" />
                 <span>
-                    The following JSON fields will be overwritten, so you do not need to include
-                    them: <code className="rounded bg-gray-100 p-1">id</code>,{' '}
+                    Los siguientes campos JSON se sobrescribirán, por lo que no es necesario
+                    incluirlos: <code className="rounded bg-gray-100 p-1">id</code>,{' '}
                     <code className="rounded bg-gray-100 p-1">issuer.id</code>,{' '}
                     <code className="rounded bg-gray-100 p-1">credentialSubject.id</code>,{' '}
                     <code className="rounded bg-gray-100 p-1">issuanceDate</code>
@@ -109,7 +109,7 @@ const JSONField: React.FC<Props> = props => {
                 <p className="flex gap-2 items-center flex-wrap rounded bg-orange-400 text-black font-roboto px-6 py-2 my-3">
                     <CircleBang className="w-5 h-5" />
                     <span>
-                        <b>Warning:</b> You are using the following fields that will be overwritten:{' '}
+                        <b>Advertencia:</b> Los siguientes campos se sobrescribirán:{' '}
                         {overwrittenFields.map((field, index) => (
                             <>
                                 <code className="rounded bg-gray-100 p-1">{field}</code>

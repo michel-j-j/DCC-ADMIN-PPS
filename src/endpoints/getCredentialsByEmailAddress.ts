@@ -3,7 +3,7 @@ import { Forbidden } from 'payload/errors';
 import payload from 'payload';
 
 export const getCredentialsByEmailAddress: PayloadHandler = async (req, res, next) => {
-   // if (!req.user) return res.sendStatus(401);
+    // if (!req.user) return res.sendStatus(401);
 
     const { email, page = 1 } = req.body;
 
@@ -13,8 +13,8 @@ export const getCredentialsByEmailAddress: PayloadHandler = async (req, res, nex
             depth: 1,
             page,
             limit: 20,
-            where: { emailAddress: { equals: email } }, 
-          //  sort: '-credentialName',
+            where: { emailAddress: { equals: email } },
+            //  sort: '-credentialName',
             locale: 'en',
         });
 

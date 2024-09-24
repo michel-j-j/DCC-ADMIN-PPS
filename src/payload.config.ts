@@ -12,7 +12,7 @@ import SideNav from './components/SideNav/SideNav';
 
 //endpoints
 import { readPayloadVersion } from './endpoints/readPayloadVersion';
-import { getClaimConfig } from './endpoints/getClaimConfig'
+import { getClaimConfig } from './endpoints/getClaimConfig';
 import { createBatchCredentials } from './endpoints/createCredentialsForBatch';
 import { getBatchCredentials } from './endpoints/getBatchCredentials';
 import { getBatchFields } from './endpoints/getBatchFields';

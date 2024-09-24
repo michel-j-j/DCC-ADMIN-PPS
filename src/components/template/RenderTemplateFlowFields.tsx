@@ -117,7 +117,7 @@ const RenderSlide = React.forwardRef<HTMLElement, RenderSlideProps>(function Ren
             className="batch-flow-slide w-full h-full flex-shrink-0 px-20 pb-10 pt-15 overflow-y-auto"
         >
             <h2 className="mt-5 text-[--theme-text] text-3xl font-semibold mb-5 font-inter">
-                Create Template
+                Crear Template
             </h2>
             {renderFields}
         </section>

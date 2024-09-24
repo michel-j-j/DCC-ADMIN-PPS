@@ -7,8 +7,8 @@ const placeholderEmailData = `
   <html>
   <body>
 
-    <h2>Hello {{earnerName}}! Claim your credential at this link</h2>
-      <p>Credential: {{credentialName}}</p>
+    <h2>Hello {{earnerName}}! Obtenga su credencial en el siguiente enlace</h2>
+      <p>Credencial: {{credentialName}}</p>
     <a href="{{link}}">{{link}}</a>
     </div>
   </body>
@@ -62,7 +62,7 @@ const EmailTemplatesCollection: CollectionConfig = {
             admin: {
                 language: 'handlebars',
                 description:
-                    'Write an email template using Handlebars syntax that will be used as the body when sending emails.',
+                    'Escriba una plantilla de correo electrónico utilizando la sintaxis de Handlebars que se utilizará como cuerpo al enviar correos electrónicos.',
                 components: { Field: CodeEditorWithCsvValidation },
             },
             defaultValue: placeholderEmailData,

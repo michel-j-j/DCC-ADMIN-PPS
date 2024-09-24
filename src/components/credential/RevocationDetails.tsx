@@ -29,27 +29,27 @@ const RevocationDetails: React.FC<RevocationDetailsProps> = ({ slug, credential 
                 <button type="button" aria-label="Close" onClick={() => closeModal(slug)} />
 
                 <section>
-                    <h2>Revocation Details</h2>
+                    <h2>Detalles de Revocacion</h2>
 
                     <section>
-                        <span>Revoked by: {user?.name ?? user?.email ?? 'Unknown'}</span>
+                        <span>Revocado por: {user?.name ?? user?.email ?? 'Unknown'}</span>
                         <span>
-                            Revoked on:{' '}
+                            Revocada el:{' '}
                             {credential.revocationDate
                                 ? format(new Date(credential.revocationDate), 'dd/MM/yyyy')
                                 : 'Unknown'}
                         </span>
-                        <span>Credential Name: {credential.credentialName}</span>
-                        <span>Earner Name: {credential.earnerName}</span>
+                        <span>Nombre de Credencial: {credential.credentialName}</span>
+                        <span>Nombre del Beneficiario: {credential.earnerName}</span>
                     </section>
 
                     <label>
-                        Revocation Explanation
+                        Explicación de la revocación
                         <output>{credential.revocationReason}</output>
                     </label>
 
                     <button type="button" onClick={() => closeModal(slug)}>
-                        Close
+                        Cerrar
                     </button>
                 </section>
             </section>

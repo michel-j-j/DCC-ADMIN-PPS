@@ -9,7 +9,7 @@ type On<T extends Object> = Record<keyof T, boolean>;
 
 type UseHorizontalPages = <
     T extends Record<string, RefObject<Element>> = Record<string, RefObject<Element>>,
-    K extends keyof T = keyof T,
+    K extends keyof T = keyof T
 >(args: {
     /** Object with names as keys and refs as values, with each ref attached to a page */
     refs: T;
@@ -87,18 +87,14 @@ const useHorizontalPages: UseHorizontalPages = ({
         return observer.current[name];
     };
 
-    const scrollTo = Object.entries(refs).reduce<ScrollTo<typeof refs>>(
-        (acc, [name, ref]) => {
-            acc[<keyof typeof refs>name] = (
-                smooth: boolean = true,
-                overrides: ScrollIntoViewOptions = {}
-            ) =>
-                ref.current?.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', ...overrides });
+    const scrollTo = Object.entries(refs).reduce<ScrollTo<typeof refs>>((acc, [name, ref]) => {
+        acc[<keyof typeof refs>name] = (
+            smooth: boolean = true,
+            overrides: ScrollIntoViewOptions = {}
+        ) => ref.current?.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', ...overrides });
 
-            return acc;
-        },
-        (<unknown>{}) as ScrollTo<typeof refs>
-    );
+        return acc;
+    }, (<unknown>{}) as ScrollTo<typeof refs>);
 
     const unobserve = () => {
         Object.keys(refs).forEach(name => {

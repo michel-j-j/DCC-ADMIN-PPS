@@ -116,7 +116,7 @@ const UploadCSV = React.forwardRef<HTMLElement, UploadCSVProps>(function UploadC
             className="w-full h-full snap-start flex-shrink-0 p-10 overflow-y-auto upload-csv-wrapper"
         >
             <h2 className="mt-5 text-[--theme-text] text-3xl font-semibold mb-5 font-inter">
-                Upload & Manage Earner Information
+                Cargar y gestionar la información de los perceptores
             </h2>
             {!formProps.readOnly && (
                 <>
@@ -143,9 +143,9 @@ const UploadCSV = React.forwardRef<HTMLElement, UploadCSVProps>(function UploadC
                             <output className="flex gap-2 items-center flex-wrap rounded bg-blue-200 text-black font-roboto px-6 py-2 my-3">
                                 <CircleBang className="w-5 h-5" />
                                 <span>
-                                    The field <b>issuanceDate</b> is special field that is populated
-                                    by the system; if the CSV contains this field, the values will
-                                    be ignored.
+                                    El campo <b>issuanceDate</b> es un campo especial que rellena el
+                                    sistema; si el CSV contiene este campo, se ignorarán los
+                                    valores.
                                 </span>
                             </output>
                         )}
@@ -174,7 +174,7 @@ const UploadCSV = React.forwardRef<HTMLElement, UploadCSVProps>(function UploadC
                 ) : (
                     <output className="flex gap-2 items-center bg-green-200 text-black font-roboto px-6 py-2 my-3">
                         <CircleCheck className="w-5 h-5" />
-                        <span>CSV contains all fields.</span>
+                        <span>El CSV contiene todos los campos.</span>
                     </output>
                 ))}
 
@@ -182,7 +182,9 @@ const UploadCSV = React.forwardRef<HTMLElement, UploadCSVProps>(function UploadC
                 (fieldsIntersection.missingInTemplate.length > 0 ? (
                     <output className="flex gap-2 items-center flex-wrap rounded bg-orange-400 text-black font-roboto px-6 py-2 my-3">
                         <CircleBang className="w-5 h-5" />
-                        <span>Template is missing the following fields that were in the CSV:</span>
+                        <span>
+                            A la plantilla le faltan los siguientes campos que estaban en el CSV:
+                        </span>
                         <span className="font-bold">
                             {fieldsIntersection.missingInTemplate.join(', ')}.
                         </span>
@@ -190,7 +192,7 @@ const UploadCSV = React.forwardRef<HTMLElement, UploadCSVProps>(function UploadC
                 ) : (
                     <output className="flex gap-2 items-center rounded bg-green-200 text-black font-roboto px-6 py-2 my-3">
                         <CircleCheck className="w-5 h-5" />
-                        <span>Template is using all fields that were in the CSV.</span>
+                        <span>La plantilla esta usando todos los campos que estan en el CSV</span>
                     </output>
                 ))}
 

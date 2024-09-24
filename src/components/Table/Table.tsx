@@ -15,7 +15,7 @@ export const Table: React.FC<Props> = ({ data, columns: columnsFromProps }) => {
     });
 
     if (!activeColumns || activeColumns.length === 0) {
-        return <div>No columns selected</div>;
+        return <div>No hay columnas seleccionadas</div>;
     }
 
     return (
