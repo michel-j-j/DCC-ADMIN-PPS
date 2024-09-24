@@ -13,7 +13,7 @@ const UserPageDescription: React.FC = () => {
             <p className="header_paragraph"></p>
             <Link className="header_template_button" to={`${adminRoute}/collections/users/create`}>
                 <img className="plus_icon" src="/assets/plus-icon.svg" alt="plus icon" />
-                Create New User
+                Crear Nuevo Usuario
             </Link>
         </div>
     );

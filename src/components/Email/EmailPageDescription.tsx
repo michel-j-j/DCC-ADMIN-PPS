@@ -45,7 +45,7 @@ const EmailPageDescription: React.FC = () => {
                 to={`${adminRoute}/collections/email-template/create`}
             >
                 <img className="plus_icon" src="/assets/plus-icon.svg" alt="plus icon" />
-                Create New Template
+                Crear Nueva Plantilla
             </Link>
         </div>
     );

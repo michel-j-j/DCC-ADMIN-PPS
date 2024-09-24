@@ -69,7 +69,7 @@ export const sendEmail: PayloadHandler = async (req, res) => {
         to: credential.emailAddress,
         from: credential.batch.from || emailTemplateRecord.from,
         subject: emailTemplateRecord?.emailSubjectTitle || 'Claim Credential',
-        email: 'test email2',
+        email: 'michellejauge@gmail.com', //TODO: Cambiar email
         html: `${parsedHtml}`,
     };
 

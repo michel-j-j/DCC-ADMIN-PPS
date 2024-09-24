@@ -75,7 +75,7 @@ export const sendBatchEmail: PayloadHandler = async (req, res, next) => {
             to: record?.emailAddress,
             from: (record.batch as CredentialBatch).from || emailTemplateRecord.from,
             subject: emailTemplateRecord?.emailSubjectTitle || 'Claim Credential',
-            email: 'test email2',
+            email: 'michellejauge@gmail.com', //TODO: Cambiar email
             html: `${parsedHtml}`,
         };
     });
