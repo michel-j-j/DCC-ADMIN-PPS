@@ -132,7 +132,7 @@ const UploadCSV = React.forwardRef<HTMLElement, UploadCSVProps>(function UploadC
                             name under the column{' '}
                             <code className="rounded bg-gray-100 p-1">earnerName</code>, and a valid
                             credential name under the column{' '}
-                            <code className="rounded bg-gray-100 p-1">credentialName</code> for
+                            <code className="rounded bg-gray-100 p-1">Nombre de Credencial</code> for
                             every entry in the CSV
                         </span>
                     </p>

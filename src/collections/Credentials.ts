@@ -56,16 +56,25 @@ const CredentialsCollection: CollectionConfig = {
         },
     },
     fields: [
-        { name: 'credentialName', type: 'text' },
-        { name: 'earnerName', type: 'text' },
-        { name: 'emailAddress', type: 'email' },
+        {  
+         name: 'credentialName', 
+           label: 'Nombre de la Credencial',
+           type: 'text' },
+
+        { name: 'earnerName',
+          label: 'Nombre del titular',
+          type: 'text' },
+        { 
+        name: 'emailAddress', 
+        label: 'Direccion de Email',
+        type: 'email' },
         {
             name: 'extraFields',
             type: 'json',
-            label: 'Credential Fields',
+            label: 'Campos de credenciales',
             admin: {
                 description:
-                    'You can edit and update the values for additional credential fields in the editor. Hit the Save button to save your changes.',
+                    'Puede editar y actualizar los valores de los campos de credenciales adicionales en el editor. Pulse el botón Guardar para guardar los cambios.',
             },
         },
         {
@@ -80,7 +89,7 @@ const CredentialsCollection: CollectionConfig = {
         },
         {
             name: 'batch',
-            label: 'Batch Name',
+            label: 'Nombre del lote',
             type: 'relationship',
             required: true,
             relationTo: 'credential-batch',
