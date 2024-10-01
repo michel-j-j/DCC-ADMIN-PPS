@@ -71,7 +71,7 @@ const CredentialsCollection: CollectionConfig = {
         {
             name: 'extraFields',
             type: 'json',
-            label: 'Campos de credenciales',
+            label: 'Credential Fields',
             admin: {
                 description:
                     'Puede editar y actualizar los valores de los campos de credenciales adicionales en el editor. Pulse el botón Guardar para guardar los cambios.',
@@ -79,6 +79,7 @@ const CredentialsCollection: CollectionConfig = {
         },
         {
             name: 'status',
+            label: 'Estados',
             type: 'text',
             required: true,
             defaultValue: CREDENTIAL_STATUS.DRAFT,
@@ -95,18 +96,27 @@ const CredentialsCollection: CollectionConfig = {
             relationTo: 'credential-batch',
             hasMany: false,
         },
-        { name: 'revocationReason', type: 'text', admin: { hidden: true } },
-        { name: 'revocationDate', type: 'date', admin: { hidden: true } },
+        { 
+          name: 'revocationReason',
+          label: "Motivo de la revocación",
+          type: 'text', admin: { hidden: true } 
+         },
+         { 
+           name: 'revocationDate', 
+           label: 'Fecha de Revocación',
+           type: 'date',
+           admin: { hidden: true } },
         {
             name: 'revokedBy',
             type: 'relationship',
+            label: "Revocado por",
             relationTo: 'users',
             hasMany: false,
             admin: { hidden: true },
         },
         {
             name: 'actionButton',
-            label: 'Actions Button',
+            label: 'Botones de Accion',
             type: 'ui',
             admin: { components: { Field: () => null, Cell: ActionsButton } },
         },
