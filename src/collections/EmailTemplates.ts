@@ -18,6 +18,7 @@ const placeholderEmailData = `
 
 const EmailTemplatesCollection: CollectionConfig = {
     slug: 'email-template',
+    labels: { plural: "Plantillas de Correo Electrónico" },
     admin: {
         defaultColumns: ['title', 'id'],
         description: EmailPageDescription,
@@ -35,19 +36,22 @@ const EmailTemplatesCollection: CollectionConfig = {
             required: true,
             minLength: 3,
             maxLength: 100,
+            label: 'Título',
         },
         {
             name: 'internalNotes',
             type: 'textarea',
             required: false,
             maxLength: 1000,
+            label: 'Notas Internas',
         },
         {
             name: 'from',
             type: 'text',
             required: false,
             hidden: true,
-            admin: { description: 'Example: Bob <bob@gmail.com>' },
+            label: 'Remitente',
+            admin: { description: 'Ejemplo: Bob <bob@gmail.com>' },
         },
         {
             name: 'emailSubjectTitle',
@@ -55,10 +59,12 @@ const EmailTemplatesCollection: CollectionConfig = {
             required: false,
             minLength: 3,
             maxLength: 100,
+            label: 'Asunto del Correo Electrónico',
         },
         {
-            name: 'emailTemplatesHandlebarsCode', // required
-            type: 'code', // required
+            name: 'emailTemplatesHandlebarsCode',
+            type: 'code',
+            label: 'Plantilla de Correo Electrónico (Handlebars)',
             admin: {
                 language: 'handlebars',
                 description:

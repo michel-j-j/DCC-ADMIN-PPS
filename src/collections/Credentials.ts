@@ -9,6 +9,7 @@ import CreateCredential from '../components/credential/CreateCredential';
 
 const CredentialsCollection: CollectionConfig = {
     slug: 'credential',
+    labels: { plural: "Credenciales" },
     admin: {
         defaultColumns: ['credentialName', 'id', 'status', 'actionButton'],
         useAsTitle: 'credentialName',
@@ -56,16 +57,28 @@ const CredentialsCollection: CollectionConfig = {
         },
     },
     fields: [
-        { name: 'credentialName', type: 'text' },
-        { name: 'earnerName', type: 'text' },
-        { name: 'emailAddress', type: 'email' },
+        { 
+            name: 'credentialName', 
+            type: 'text', 
+            label: 'Nombre de la Credencial' 
+        },
+        { 
+            name: 'earnerName', 
+            type: 'text', 
+            label: 'Nombre del Beneficiario' 
+        },
+        { 
+            name: 'emailAddress', 
+            type: 'email', 
+            label: 'Dirección de Correo Electrónico' 
+        },
         {
             name: 'extraFields',
             type: 'json',
-            label: 'Credential Fields',
+            label: 'Campos de la Credencial',
             admin: {
                 description:
-                    'You can edit and update the values for additional credential fields in the editor. Hit the Save button to save your changes.',
+                    'Puede editar y actualizar los valores de los campos adicionales de la credencial en el editor. Presione el botón Guardar para guardar sus cambios.',
             },
         },
         {
@@ -73,6 +86,7 @@ const CredentialsCollection: CollectionConfig = {
             type: 'text',
             required: true,
             defaultValue: CREDENTIAL_STATUS.DRAFT,
+            label: 'Estado',
             admin: {
                 hidden: true,
                 components: { Cell: CredentialStatusCell },
@@ -80,24 +94,35 @@ const CredentialsCollection: CollectionConfig = {
         },
         {
             name: 'batch',
-            label: 'Batch Name',
+            label: 'Nombre del Lote',
             type: 'relationship',
             required: true,
             relationTo: 'credential-batch',
             hasMany: false,
         },
-        { name: 'revocationReason', type: 'text', admin: { hidden: true } },
-        { name: 'revocationDate', type: 'date', admin: { hidden: true } },
+        { 
+            name: 'revocationReason', 
+            type: 'text', 
+            label: 'Razón de Revocación', 
+            admin: { hidden: true } 
+        },
+        { 
+            name: 'revocationDate', 
+            type: 'date', 
+            label: 'Fecha de Revocación', 
+            admin: { hidden: true } 
+        },
         {
             name: 'revokedBy',
             type: 'relationship',
             relationTo: 'users',
             hasMany: false,
+            label: 'Revocado Por',
             admin: { hidden: true },
         },
         {
             name: 'actionButton',
-            label: 'Actions Button',
+            label: 'Botón de Acciones',
             type: 'ui',
             admin: { components: { Field: () => null, Cell: ActionsButton } },
         },
