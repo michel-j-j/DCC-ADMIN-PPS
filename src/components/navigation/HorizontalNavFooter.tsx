@@ -26,16 +26,16 @@ type HorizontalNavFooterProps = {
 };
 
 const HorizontalNavFooter: React.FC<HorizontalNavFooterProps> = ({
-    mainAction = () => { },
+    mainAction = () => {},
     canDoMainAction = true,
     secondaryAction,
     canDoSecondaryAction = true,
     goForward,
     goBack,
     quit,
-    mainText = 'Continue',
+    mainText = 'Continuar',
     secondaryText = '',
-    quitText = 'Quit',
+    quitText = 'Salir',
     className = '',
     tag = 'footer',
     showAutosave = true,

@@ -14,7 +14,7 @@ export const getCredentialLinks: PayloadHandler = async (req, res) => {
     let id: string;
     let token: string;
 
-    try { 
+    try {
         const authHeader = req.headers.authorization;
         if (authHeader && !authHeader.startsWith('Bearer ')) return res.sendStatus(401);
         token = authHeader.split('Bearer ')[1];

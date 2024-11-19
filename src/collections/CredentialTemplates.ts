@@ -5,6 +5,7 @@ import CodeEditorWithCsvValidation from '../components/template/CodeEditorWithCs
 
 const CredentialsTemplatesCollection: CollectionConfig = {
     slug: 'credential-template',
+    labels: { plural: "Plantillas de Credenciales" },
     admin: {
         defaultColumns: ['title', 'id'],
         useAsTitle: 'title',
@@ -22,26 +23,29 @@ const CredentialsTemplatesCollection: CollectionConfig = {
             required: true,
             minLength: 3,
             maxLength: 100,
+            label: 'Título',
         },
         {
             name: 'description',
             type: 'textarea',
             required: false,
             maxLength: 1000,
+            label: 'Descripción',
         },
         {
             name: 'internalNotes',
             type: 'textarea',
             required: false,
             maxLength: 1000,
+            label: 'Notas Internas',
         },
         {
-            name: 'credentialTemplateJson', // required
-            type: 'json', // required
-            //  defaultValue: JSON.stringify(placeHolderVc),
+            name: 'credentialTemplateJson',
+            type: 'json',
+            label: 'Plantilla de Credencial (JSON)',
             admin: {
                 description:
-                    'Write a credential template using Handlebars syntax that will be used to create credentials.',
+                    'Escriba una plantilla de credencial usando la sintaxis de Handlebars que se utilizará para crear credenciales.',
                 components: { Field: CodeEditorWithCsvValidation },
             },
             required: true,

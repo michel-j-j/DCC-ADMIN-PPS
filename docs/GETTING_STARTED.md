@@ -1,6 +1,6 @@
 ## DCC Admin Dashboard Setup and Use
 
-This guide explains how to run a hosted instance from which you can issue verifiable credentials, including sending out email notifications to collect credentials 
+This guide explains how to run a hosted instance from which you can issue verifiable credentials, including sending out email notifications to collect credentials
 into the Learner Credential Wallet. This setup will typically from a half day to a day to set up.
 
 ### Requirements
@@ -11,7 +11,7 @@ There are essentially four fundamental requirements:
 
 You'll need a server with a domain name to allow students to collect credentials. We use AWS for our test instance, but any will do, provided you can install Docker.
 
-**IMPORTANT**: We use an AWS t3.xlarge instance with 30Gigs of storage for our testing, but the dashboard has also been deployed to an AWS t2.medium instance. We do know that it won't run on a  t2.micro instance. If you find that your server is hanging up when starting the dashboard, consider upgrading your instance.
+**IMPORTANT**: We use an AWS t3.xlarge instance with 30Gigs of storage for our testing, but the dashboard has also been deployed to an AWS t2.medium instance. We do know that it won't run on a t2.micro instance. If you find that your server is hanging up when starting the dashboard, consider upgrading your instance.
 
 #### 2. Docker
 
@@ -27,9 +27,9 @@ Mongo is used to store CSV uploads of the credentials you want to issue, includi
 
 You'll need an SMTP mail server to send notifications to recipients. Any SMTP server is fine, for example, SendGrid or MailChimp. Sometimes (but not always) you can even use your own personal email account if your email provider allows direct SMTP sends. I've successfully used my MIT email address for example. Standard gmail accounts can supposedly also be used by changing a setting in your gmail account. At some point, however, you may hit limits on your personal email account, so do be careful. Whatever smtp service you end up using, you'll need three values for your SMTP service:
 
-* SMTP HOST
-* SMTP USER
-* SMTP PASSWORD
+-   SMTP HOST
+-   SMTP USER
+-   SMTP PASSWORD
 
 ### Configuration
 
@@ -49,7 +49,7 @@ You'll need to set these environment variables:
 
 The smtp values are hopefully self-explanatory, and typically clearly provided by your email service.
 
-The mongodb_uri is the mongo connection string that you can get from your mongo installation (e.g, from your mongo atlas instance). The value that appears in the sample compose points at a  instance of mongo that is running within the docker compose network, but you'll likely want to replace that with a more stable instance of mongo. You can use the sample initially, but once you've set your own value be sure to remove the part of the compose file that describes the local mongo, i.e, this bit:
+The mongodb_uri is the mongo connection string that you can get from your mongo installation (e.g, from your mongo atlas instance). The value that appears in the sample compose points at a instance of mongo that is running within the docker compose network, but you'll likely want to replace that with a more stable instance of mongo. You can use the sample initially, but once you've set your own value be sure to remove the part of the compose file that describes the local mongo, i.e, this bit:
 
 ```
 mongo:
@@ -58,21 +58,21 @@ mongo:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    volumes: 
+    volumes:
       - mongo_data:/data/db
 ```
 
-Also remove 'mongo' from the 'dependsOn' section of the 'payload' service, and 'mongo_data:' from the 'volumes' section. 
+Also remove 'mongo' from the 'dependsOn' section of the 'payload' service, and 'mongo_data:' from the 'volumes' section.
 
 The final value to configure is the domain name, but we've tried to make that a little bit easier by allowing you to include that name on the command line when you start docker
 
 So now start up your server by running this from the command line, while in the same directory that you saved your 'compose.yaml' file:
 
-```HOST=myhost.org docker compose up```
+`HOST=myhost.org docker compose up`
 
 where, of course, you'll replace myhost.org with your domain name.
 
-That should now download the various docker images from docker hub (which might take a few minutes) and start up your dashboard. 
+That should now download the various docker images from docker hub (which might take a few minutes) and start up your dashboard.
 
 On to how to use it...
 
@@ -80,7 +80,7 @@ On to how to use it...
 
 You'll initially be prompted to create a first user. Do that and then:
 
-1. Create a template for the Verifiable Credentials that you'd like to issue: 
+1. Create a template for the Verifiable Credentials that you'd like to issue:
 
 a) Open the credential templates screen and start a new template, like so:
 
@@ -94,47 +94,40 @@ Here is the json that you can paste into that 'Credential Template Json' field:
 
 ```json
 {
-  "type": [
-    "VerifiableCredential",
-    "OpenBadgeCredential"
-  ],
-  "name": "{{ earnerName }} - {{ degreeType }} in {{ subject }}",
-  "issuer": {
-    "url": "https://digitalcredentials.mit.edu/",
-    "type": "Profile",
-    "name": "DCC Demo University",
-    "image": {
-      "id": "https://github-production-user-asset-6210df.s3.amazonaws.com/206059/282835374-3f3e1476-fd1e-4c8f-a560-5cfb4017bbc3.png",
-      "type": "Image"
-    }
-  },
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
-  ],
-  "credentialSubject": {
-    "type": [
-      "AchievementSubject"
+    "type": ["VerifiableCredential", "OpenBadgeCredential"],
+    "name": "{{ earnerName }} - {{ degreeType }} in {{ subject }}",
+    "issuer": {
+        "url": "https://digitalcredentials.mit.edu/",
+        "type": "Profile",
+        "name": "DCC Demo University",
+        "image": {
+            "id": "https://github-production-user-asset-6210df.s3.amazonaws.com/206059/282835374-3f3e1476-fd1e-4c8f-a560-5cfb4017bbc3.png",
+            "type": "Image"
+        }
+    },
+    "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json"
     ],
-    "name": "{{ earnerName }}",
-    "achievement": {
-      "type": [
-        "Achievement"
-      ],
-      "name": "{{ degreeType }} in {{ subject }}",
-      "criteria": {
-        "type": "Criteria",
-        "narrative": "{{ earnerName }} has fulfilled the requirements to earn this {{ degreeType }} in {{ subject }}."
-      },
-      "description": "DCC Demo University {{ degreeType }} in {{ subject }}",
-      "fieldOfStudy": "I{{ subject }}",
-      "achievementType": "BachelorDegree"
+    "credentialSubject": {
+        "type": ["AchievementSubject"],
+        "name": "{{ earnerName }}",
+        "achievement": {
+            "type": ["Achievement"],
+            "name": "{{ degreeType }} in {{ subject }}",
+            "criteria": {
+                "type": "Criteria",
+                "narrative": "{{ earnerName }} has fulfilled the requirements to earn this {{ degreeType }} in {{ subject }}."
+            },
+            "description": "DCC Demo University {{ degreeType }} in {{ subject }}",
+            "fieldOfStudy": "I{{ subject }}",
+            "achievementType": "BachelorDegree"
+        }
     }
-  }
 }
 ```
 
-You'll notice there is also an option to validate the template against a CSV file, to ensure the fields in the CSV match the fields in the template, but we'll skip that for now. You'd use this if you already had a CSV you intended to use, which we don't yet have.  We do have the option to click the 'Generate Empty CSV' button at the button of the screen, which will generate a skeleton CSV for us that includes the fields in our handlebars template. So click that, which will generate and download the CSV (to your downloads folder or wherever you computer prefers to put such things). We'll fill that in later.
+You'll notice there is also an option to validate the template against a CSV file, to ensure the fields in the CSV match the fields in the template, but we'll skip that for now. You'd use this if you already had a CSV you intended to use, which we don't yet have. We do have the option to click the 'Generate Empty CSV' button at the button of the screen, which will generate a skeleton CSV for us that includes the fields in our handlebars template. So click that, which will generate and download the CSV (to your downloads folder or wherever you computer prefers to put such things). We'll fill that in later.
 
 Click 'Save and Quit'
 
@@ -157,18 +150,18 @@ Here's the html that you can copy and paste into that field:
   <body>
 
     <p>Dear {{earnerName}}! </p>
-    
+
     <p>Congratulations on completing your {{ degreeType }} in {{ subject }}.</p>
-    
+
     <p>To claim your verifiable digital degree, download the <a href="https://lcw.app/">Learner Credential Wallet</a> on your mobile device, and follow the istructions at this personalized url to add the credential to your wallet: <a href="{{link}}">{{link}}</a></p>
-    
+
     </div>
   </body>
 
   </html>
-  ```
+```
 
-You can again validate the template against a CSV file to ensure your CSV file contains at least those fields in the template.  You can also generate a skeleton CSV file with columns matching the variables in your template, but we've already generated our skeleton CSV file up in step 1 when we created our credential template.
+You can again validate the template against a CSV file to ensure your CSV file contains at least those fields in the template. You can also generate a skeleton CSV file with columns matching the variables in your template, but we've already generated our skeleton CSV file up in step 1 when we created our credential template.
 
 Click 'Save and Quit'
 
@@ -192,9 +185,9 @@ c) Select the credential template we created:
 
 and then click Continue
 
-d) Upload a CSV file with credential data.  
+d) Upload a CSV file with credential data.
 
-Here you'll first have to populate that CSV skeleton we created earlier.  So find the file, open it up in a text editor and replace the contents with something like the following:
+Here you'll first have to populate that CSV skeleton we created earlier. So find the file, open it up in a text editor and replace the contents with something like the following:
 
 ```
 earnerName,degreeType,subject,credentialName,emailAddress
@@ -218,18 +211,15 @@ Add an email address to 'Email From'. This is the email address from which you'l
 
 Choose the template we created earlier.
 
-![Alt text](screenshots/SelectEmailTemplate.png) 
+![Alt text](screenshots/SelectEmailTemplate.png)
 
 Click Continue
 
 f) You should now see a Confirmation screen like the following:
 
-![Alt text](screenshots/ConfirmationScreen.png) 
+![Alt text](screenshots/ConfirmationScreen.png)
 
-So this is the point where you could - if you were ready - click 'Send' to send out emails to the 
-credential recipients, inviting them to collect their credentials.  That process should be self-explanatory (and if not let us know how we can improve it!)
+So this is the point where you could - if you were ready - click 'Send' to send out emails to the
+credential recipients, inviting them to collect their credentials. That process should be self-explanatory (and if not let us know how we can improve it!)
 
 Enjoy!
-
-
-

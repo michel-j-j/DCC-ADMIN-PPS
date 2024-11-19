@@ -34,21 +34,21 @@ const BatchPreviewSubmit = React.forwardRef<HTMLElement, BatchPreviewSubmitProps
                 ref={ref}
             >
                 <h2 className="mt-5 text-[--theme-text] text-3xl font-semibold mb-5 font-inter">
-                    Confirmation
+                    Confirmacion
                 </h2>
                 <p className="text-[--theme-text] text-xl font-medium font-inter mb-15">
-                    Review and confirm the details for this batch before sending credential claim
-                    emails to earners. Please make sure the details for your batch are correct
-                    before submitting for processing.
+                    Revise y confirme los detalles de este lote antes de enviar los correos
+                    electrónicos de solicitud de credenciales a los usuarios. Asegúrese de que los
+                    datos de su lote son correctos antes de enviarlos para su procesamiento.
                 </p>
 
                 <Accordion type="single" className="mb-5" defaultValue="batch">
                     <AccordionItem value="batch">
-                        <AccordionTrigger>Batch: {fields.title.value}</AccordionTrigger>
+                        <AccordionTrigger>Lote: {fields.title.value}</AccordionTrigger>
                         <AccordionContent>
                             <section className="p-5 rounded-lg bg-white flex flex-col items-start gap-2 mb-5 dark:bg-slate-900">
                                 <h5 className="text-slate-600 font-inter text-lg dark:text-slate-400">
-                                    Description
+                                    Descripcion
                                 </h5>
                                 <p className="m-0 text-slate-900 font-inter font-normal text-base dark:text-slate-100">
                                     {fields.description.value}
@@ -57,7 +57,7 @@ const BatchPreviewSubmit = React.forwardRef<HTMLElement, BatchPreviewSubmitProps
 
                             <section className="p-5 rounded-lg bg-white flex flex-col items-start gap-2 dark:bg-slate-900">
                                 <h5 className="text-slate-600 font-inter text-lg dark:text-slate-400">
-                                    Internal Notes
+                                    Notas Internas
                                 </h5>
                                 <p className="m-0 text-slate-900 font-inter font-normal text-base dark:text-slate-100">
                                     {fields.internalNotes.value}
@@ -69,11 +69,11 @@ const BatchPreviewSubmit = React.forwardRef<HTMLElement, BatchPreviewSubmitProps
 
                 <Accordion type="single" className="mb-5" defaultValue="template">
                     <AccordionItem value="template">
-                        <AccordionTrigger>Template: {template?.title}</AccordionTrigger>
+                        <AccordionTrigger>Plantilla: {template?.title}</AccordionTrigger>
                         <AccordionContent>
                             <section className="p-5 rounded-lg bg-white flex flex-col items-start gap-2 mb-5 dark:bg-slate-900">
                                 <h5 className="text-slate-600 font-inter text-lg dark:text-slate-400">
-                                    Details
+                                    Detalles
                                 </h5>
                                 <p className="m-0 text-slate-900 font-inter font-normal text-base dark:text-slate-100">
                                     {template?.description}
@@ -82,7 +82,7 @@ const BatchPreviewSubmit = React.forwardRef<HTMLElement, BatchPreviewSubmitProps
 
                             <section className="p-5 rounded-lg bg-white flex flex-col items-start gap-2 dark:bg-slate-900">
                                 <h5 className="text-slate-600 font-inter text-lg dark:text-slate-400">
-                                    Internal Notes
+                                    Notas Internas
                                 </h5>
                                 <p className="m-0 text-slate-900 font-inter font-normal text-base dark:text-slate-100">
                                     {template?.internalNotes}
@@ -94,7 +94,7 @@ const BatchPreviewSubmit = React.forwardRef<HTMLElement, BatchPreviewSubmitProps
 
                 <Accordion type="single" className="mb-5" defaultValue="credentials">
                     <AccordionItem value="credentials">
-                        <AccordionTrigger>Credentials From CSV</AccordionTrigger>
+                        <AccordionTrigger>Credencial desde CSV</AccordionTrigger>
                         {id && credentialData && (
                             <BatchCredentialListPreview
                                 data={credentialData}

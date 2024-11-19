@@ -38,7 +38,7 @@ const SelectEmailTemplate = React.forwardRef<HTMLElement, SelectEmailTemplatePro
             indexPath: incomingIndexPath,
         } = formProps;
 
-       // const fromSchema = fieldSchema.find(field => field.name === 'from');
+        // const fromSchema = fieldSchema.find(field => field.name === 'from');
         const emailTemplateSchema = fieldSchema.find(field => field.name === 'emailTemplate');
 
         useEffect(() => {
@@ -71,17 +71,17 @@ const SelectEmailTemplate = React.forwardRef<HTMLElement, SelectEmailTemplatePro
                 className="w-full h-full snap-start flex-shrink-0 p-10 overflow-y-auto upload-csv-wrapper"
             >
                 <h2 className="mt-5 text-[--theme-text] text-3xl font-semibold mb-5 font-inter">
-                    Select Email Template
+                    Seleccionar Plantilla de Email
                 </h2>
                 <p className="text-[--theme-text] text-xl font-medium font-inter mb-15">
-                    Select an email template to be sent to the earners.
+                    Seleccione una plantilla de correo electrónico para enviar a los usuarios.
                 </p>
 
                 {template &&
                     (fieldsIntersection.missingInCSV.length > 0 ? (
                         <output className="flex gap-2 items-center flex-wrap rounded bg-red-400 text-black font-roboto px-6 py-2 my-3">
                             <CircleBang className="w-5 h-5" />
-                            <span>CSV is missing the following fields:</span>
+                            <span>Al CSV le faltan los siguientes campos:</span>
                             <span className="font-bold">
                                 {fieldsIntersection.missingInCSV.join(', ')}.
                             </span>
@@ -89,7 +89,7 @@ const SelectEmailTemplate = React.forwardRef<HTMLElement, SelectEmailTemplatePro
                     ) : (
                         <output className="flex gap-2 items-center bg-green-200 text-black font-roboto px-6 py-2 my-3">
                             <CircleCheck className="w-5 h-5" />
-                            <span>CSV contains all fields.</span>
+                            <span>El CSV contiene todos los Campos.</span>
                         </output>
                     ))}
 
@@ -98,7 +98,8 @@ const SelectEmailTemplate = React.forwardRef<HTMLElement, SelectEmailTemplatePro
                         <output className="flex gap-2 items-center flex-wrap rounded bg-orange-400 text-black font-roboto px-6 py-2 my-3">
                             <CircleBang className="w-5 h-5" />
                             <span>
-                                Template is missing the following fields that were in the CSV:
+                                A la plantilla le faltan los siguientes campos que estaban en el
+                                CSV:
                             </span>
                             <span className="font-bold">
                                 {fieldsIntersection.missingInTemplate.join(', ')}.
@@ -107,7 +108,9 @@ const SelectEmailTemplate = React.forwardRef<HTMLElement, SelectEmailTemplatePro
                     ) : (
                         <output className="flex gap-2 items-center rounded bg-green-200 text-black font-roboto px-6 py-2 my-3">
                             <CircleCheck className="w-5 h-5" />
-                            <span>Template is using all fields that were in the CSV.</span>
+                            <span>
+                                La plantilla está utilizando todos los campos que había en el CSV.
+                            </span>
                         </output>
                     ))}
 

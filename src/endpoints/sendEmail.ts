@@ -34,12 +34,12 @@ export const sendEmail: PayloadHandler = async (req, res) => {
     const emailTemplateRecord =
         typeof emailTemplateField === 'string'
             ? await payload.findByID({
-                collection: 'email-template',
-                id: emailTemplateField,
-                depth: 2,
-                showHiddenFields: true,
-                locale: 'en',
-            })
+                  collection: 'email-template',
+                  id: emailTemplateField,
+                  depth: 2,
+                  showHiddenFields: true,
+                  locale: 'en',
+              })
             : emailTemplateField;
 
     // email template code

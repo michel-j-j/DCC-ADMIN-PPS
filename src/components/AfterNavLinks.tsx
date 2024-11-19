@@ -9,36 +9,36 @@ import { useConfig } from 'payload/dist/admin/components/utilities/Config';
 // import { Chevron } from 'payload/components';
 // import { useConfig } from 'payload/components/utilities';
 
-
 const baseClass = 'after-nav-links';
 
 const AfterNavLinks: React.FC = () => {
-  const { routes: { admin: adminRoute } } = useConfig();
+    const {
+        routes: { admin: adminRoute },
+    } = useConfig();
 
-  return (
-    <div className={baseClass}>
-      {/* <span className="nav__label">Custom Routes</span> */}
-      <nav>
-        <NavLink
-          className="nav__link"
-          activeClassName="active"
-          to={`${adminRoute}/createbatch`}
-        >
-          <Chevron />
-        Create Batch Flow
-        </NavLink>
-        <NavLink
-          className="nav__link"
-          activeClassName="active"
-          to={`${adminRoute}/createtemplate`}
-        >
-          <Chevron />
-        Create Template Flow
-        </NavLink>
-        
-      </nav>
-    </div>
-  );
+    return (
+        <div className={baseClass}>
+            {/* <span className="nav__label">Custom Routes</span> */}
+            <nav>
+                <NavLink
+                    className="nav__link"
+                    activeClassName="active"
+                    to={`${adminRoute}/createbatch`}
+                >
+                    <Chevron />
+                    Crear flujo de lotes
+                </NavLink>
+                <NavLink
+                    className="nav__link"
+                    activeClassName="active"
+                    to={`${adminRoute}/createtemplate`}
+                >
+                    <Chevron />
+                    Crear flujo de plantillas
+                </NavLink>
+            </nav>
+        </div>
+    );
 };
 
 export default AfterNavLinks;

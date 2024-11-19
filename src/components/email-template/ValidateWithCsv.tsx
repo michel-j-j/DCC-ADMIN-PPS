@@ -79,7 +79,9 @@ const ValidateWithCsv: React.FC<ValidateWithCsvProps> = ({ path }) => {
                 (fieldsIntersection.missingInTemplate.length > 0 ? (
                     <output className="flex gap-2 items-center flex-wrap rounded bg-red-400 text-black font-roboto px-6 py-2 my-3 mb-8">
                         <CircleBang className="w-5 h-5" />
-                        <span>Template is missing the following fields that were in the CSV:</span>
+                        <span>
+                            A la plantilla le faltan los siguientes campos que estaban en el CSV:
+                        </span>
                         <span className="font-bold">
                             {fieldsIntersection.missingInTemplate.join(', ')}.
                         </span>
@@ -87,14 +89,16 @@ const ValidateWithCsv: React.FC<ValidateWithCsvProps> = ({ path }) => {
                 ) : (
                     <output className="flex gap-2 items-center bg-green-200 text-black font-roboto px-6 py-2 my-3 mb-8">
                         <CircleCheck className="w-5 h-5" />
-                        <span>Template is using all fields that were in the CSV.</span>
+                        <span>
+                            La plantilla está utilizando todos los campos que había en el CSV.
+                        </span>
                     </output>
                 ))}
 
-            <Label htmlFor={`field-${path}`} label="Validate with CSV" />
+            <Label htmlFor={`field-${path}`} label="Validar con CSV" />
             <FieldDescription
                 value={template}
-                description="Check your email template against a sample CSV to ensure all fields are covered."
+                description="Compare su plantilla de correo electrónico con un CSV de muestra para asegurarse de que todos los campos están cubiertos."
                 className="text-black"
             />
 
@@ -112,7 +116,7 @@ const ValidateWithCsv: React.FC<ValidateWithCsvProps> = ({ path }) => {
                 (fieldsIntersection.missingInCSV.length > 0 ? (
                     <output className="flex gap-2 items-center flex-wrap rounded bg-red-400 text-black font-roboto px-6 py-2 my-3">
                         <CircleBang className="w-5 h-5" />
-                        <span>CSV is missing the following fields:</span>
+                        <span>En el CSV faltan los siguientes campos:</span>
                         <span className="font-bold">
                             {fieldsIntersection.missingInCSV.join(', ')}.
                         </span>
@@ -120,7 +124,7 @@ const ValidateWithCsv: React.FC<ValidateWithCsvProps> = ({ path }) => {
                 ) : (
                     <output className="flex gap-2 items-center rounded bg-green-200 text-black font-roboto px-6 py-2 my-3">
                         <CircleCheck className="w-5 h-5" />
-                        <span>CSV contains all fields.</span>
+                        <span>El CSV contiene todos los campos.</span>
                     </output>
                 ))}
 
@@ -129,7 +133,7 @@ const ValidateWithCsv: React.FC<ValidateWithCsvProps> = ({ path }) => {
                 onClick={generateCsv}
                 className="w-full max-w-xs bg-green-500 rounded-xl mt-8 px-4 py-2 text-white font-inter text-xl font-semibold outline-none justify-self-end disabled:opacity-50"
             >
-                Generate Empty CSV
+                Generar CSV vacio.
             </button>
         </section>
     );

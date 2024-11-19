@@ -77,22 +77,22 @@ const BatchCredentialListPreview: React.FC<BatchCredentialListPreviewProps> = ({
                         field={
                             (field as any).name === 'actionButton'
                                 ? {
-                                    ...field,
-                                    admin: {
-                                        ...field.admin,
-                                        components: {
-                                            ...field.admin?.components,
-                                            Cell: props => (
-                                                <ActionsButton
-                                                    simple
-                                                    readOnly={readOnly}
-                                                    onDelete={refetch}
-                                                    {...props}
-                                                />
-                                            ),
-                                        },
-                                    },
-                                }
+                                      ...field,
+                                      admin: {
+                                          ...field.admin,
+                                          components: {
+                                              ...field.admin?.components,
+                                              Cell: props => (
+                                                  <ActionsButton
+                                                      simple
+                                                      readOnly={readOnly}
+                                                      onDelete={refetch}
+                                                      {...props}
+                                                  />
+                                              ),
+                                          },
+                                      },
+                                  }
                                 : field
                         }
                         colIndex={index}

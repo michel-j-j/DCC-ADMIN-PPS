@@ -1,8 +1,8 @@
 import { PayloadHandler } from 'payload/config';
 
-const logoURL = process.env.CLAIM_PAGE_LOGO_URL ?? 'default'
-const logoWidth = process.env.CLAIM_PAGE_LOGO_WIDTH ?? 433
-const logoHeight = process.env.CLAIM_PAGE_LOGO_HEIGHT ?? 291
+const logoURL = process.env.CLAIM_PAGE_LOGO_URL ?? 'default';
+const logoWidth = process.env.CLAIM_PAGE_LOGO_WIDTH ?? 433;
+const logoHeight = process.env.CLAIM_PAGE_LOGO_HEIGHT ?? 291;
 
 export const getClaimConfig: PayloadHandler = (req, res) => {
     try {

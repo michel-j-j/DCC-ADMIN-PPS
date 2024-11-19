@@ -35,13 +35,13 @@ const BatchSent: React.FC<BatchSentProps> = ({ slug }) => {
                     </header>
 
                     <h2 className="text-center font-inter text-3xl font-semibold">
-                        {title.value} is being sent!
+                        {title.value} esta siendo enviado!
                     </h2>
 
                     <p className="text-center font-inter text-xl font-normal">
-                        Your batch is now being queued for processing and emails are being sent out
-                        to earners for them to claim their credentials. Please note that no further
-                        changes can be made to this batch.
+                        Su lote se está poniendo en cola para su procesamiento y se están enviando
+                        correos electrónicos a los usuarios para que reclamen sus credenciales.
+                        Tenga en cuenta que no se pueden realizar más cambios en este lote.
                     </p>
 
                     <Link
@@ -49,7 +49,7 @@ const BatchSent: React.FC<BatchSentProps> = ({ slug }) => {
                         to="/admin/collections/credential-batch"
                         onClick={() => closeModal(slug)}
                     >
-                        Got it!
+                        ¡Ya está!
                     </Link>
                 </section>
             </section>

@@ -4,6 +4,7 @@ import CreateUser from '../components/User/CreateUser';
 
 const Users: CollectionConfig = {
     slug: 'users',
+    labels: { plural: "Usuarios" },
     auth: { tokenExpiration: 7 * 24 * 60 * 60 },
     admin: {
         useAsTitle: 'name',
@@ -11,7 +12,13 @@ const Users: CollectionConfig = {
         description: UserPageDescription,
         components: { views: { Edit: CreateUser } },
     },
-    fields: [{ name: 'name', type: 'text' }],
+    fields: [
+        {
+            name: 'name',
+            type: 'text',
+            label: 'Nombre',
+        },
+    ],
 };
 
 export default Users;
