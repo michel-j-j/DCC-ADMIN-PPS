@@ -83,6 +83,7 @@ const CredentialsCollection: CollectionConfig = {
         },
         {
             name: 'status',
+            label: 'Estados',
             type: 'text',
             required: true,
             defaultValue: CREDENTIAL_STATUS.DRAFT,
@@ -101,20 +102,19 @@ const CredentialsCollection: CollectionConfig = {
             hasMany: false,
         },
         { 
-            name: 'revocationReason', 
-            type: 'text', 
-            label: 'Razón de Revocación', 
-            admin: { hidden: true } 
-        },
-        { 
-            name: 'revocationDate', 
-            type: 'date', 
-            label: 'Fecha de Revocación', 
-            admin: { hidden: true } 
-        },
+          name: 'revocationReason',
+          label: "Motivo de la revocación",
+          type: 'text', admin: { hidden: true } 
+         },
+         { 
+           name: 'revocationDate', 
+           label: 'Fecha de Revocación',
+           type: 'date',
+           admin: { hidden: true } },
         {
             name: 'revokedBy',
             type: 'relationship',
+            label: "Revocado por",
             relationTo: 'users',
             hasMany: false,
             label: 'Revocado Por',
@@ -122,7 +122,7 @@ const CredentialsCollection: CollectionConfig = {
         },
         {
             name: 'actionButton',
-            label: 'Botón de Acciones',
+            label: 'Botones de Accion',
             type: 'ui',
             admin: { components: { Field: () => null, Cell: ActionsButton } },
         },
